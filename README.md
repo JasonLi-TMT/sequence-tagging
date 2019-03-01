@@ -30,47 +30,8 @@ Similar to [Lample et al.](https://arxiv.org/abs/1603.01360) and [Ma and Hovy](h
 ## Getting started
 
 
-1. Download the GloVe vectors with
+check Entity_recognize.ipynb for more info
 
-```
-make glove
-```
-
-Alternatively, you can download them manually [here](https://nlp.stanford.edu/projects/glove/) and update the `glove_filename` entry in `config.py`. You can also choose not to load pretrained word vectors by changing the entry `use_pretrained` to `False` in `model/config.py`.
-
-2. Build the training data, train and evaluate the model with
-```
-make run
-```
-
-
-## Details
-
-
-Here is the breakdown of the commands executed in `make run`:
-
-1. [DO NOT MISS THIS STEP] Build vocab from the data and extract trimmed glove vectors according to the config in `model/config.py`.
-
-```
-python build_data.py
-```
-
-2. Train the model with
-
-```
-python train.py
-```
-
-
-3. Evaluate and interact with the model with
-```
-python evaluate.py
-```
-
-
-Data iterators and utils are in `model/data_utils.py` and the model with training/test procedures is in `model/ner_model.py`
-
-Training time on NVidia Tesla K80 is 110 seconds per epoch on CoNLL train set using characters embeddings and CRF.
 
 
 
@@ -97,19 +58,4 @@ sentence
 ```
 
 
-Once you have produced your data files, change the parameters in `config.py` like
-
-```
-# dataset
-dev_filename = "data/coNLL/eng/eng.testa.iob"
-test_filename = "data/coNLL/eng/eng.testb.iob"
-train_filename = "data/coNLL/eng/eng.train.iob"
-```
-
-
-
-
-## License
-
-This project is licensed under the terms of the apache 2.0 license (as Tensorflow and derivatives). If used for research, citation would be appreciated.
 
